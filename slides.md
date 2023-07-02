@@ -7,7 +7,8 @@ lineNumbers: false
 drawings:
   persist: false
 transition: slide-left
-title: Welcome to Slidev
+title: Lowcode
+hideInToc: true
 ---
 
 # Lowcode
@@ -25,11 +26,12 @@ title: Welcome to Slidev
   </a>
 </div>
 
+
 ---
-level: 2
+hideInToc: true
 ---
 
-# 目录
+# Agenda
 
 <Toc></Toc>
 
@@ -38,19 +40,19 @@ level: 2
 transition: fade-out
 ---
 
-# 起因
 
-为了减少开发成本，近年来国内各大厂开始新起低代码平台。
+# Why this
 
-随着互联网行业的兴起，各类岗位层出不穷，慢慢的，大量重复的工作，重复的业务大量占据了开发者们的时间以及精力。
+- 为什么讲这个主题
+
+- 为什么做这个平台
+
 
 ---
 transition: fade-out
 ---
 
 # Spike
-
-以下是总结的几家lowcode平台：
 
 - [宜搭(阿里)](https://cn.aliyun.com/product/yida?from_alibabacloud=)
 - [飞冰(阿里)](https://cn.aliyun.com/product/yida?from_alibabacloud=)
@@ -59,6 +61,7 @@ transition: fade-out
 - [无极(腾讯)](https://wujicode.cn/xy/app/prod/official/index)
 - [更多其他平台](https://github.com/taowen/awesome-lowcode)
 
+
 ---
 transition: slide-up
 layout: default
@@ -66,17 +69,53 @@ layout: default
 
 # Varlet lowcode
 
-一个面向开发者的Vue Lowcode平台由此诞生。
+- Monorepo
+- Plugins
+- Assets
+- Schema
 
 ---
 transition: slide-up
-
-level: 2
+hideInToc: true
 ---
 
-# Navigation
+## Monorepo
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+对比：Monolithic / Multi-repo / Monorepo
+
+
+1. Simplified code management (dependencies, configs...)
+2. Improved code sharing
+
+
+---
+transition: slide-up
+hideInToc: true
+---
+
+## Plugins
+
+
+---
+transition: slide-up
+hideInToc: true
+---
+
+## Assets
+
+
+---
+transition: slide-up
+hideInToc: true
+---
+
+## Schema
+
+
+---
+transition: slide-up
+hideInToc: true
+---
 
 ### Keyboard Shortcuts
 
