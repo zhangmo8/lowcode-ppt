@@ -49,18 +49,30 @@ transition: fade-out
 
 
 ---
-transition: fade-out
+transition: slide-up
 ---
 
-# Spike
+# 开源平台
 
-- [宜搭(阿里)](https://cn.aliyun.com/product/yida?from_alibabacloud=)
-- [飞冰(阿里)](https://cn.aliyun.com/product/yida?from_alibabacloud=)
-- [Astro Zero(华为)](https://www.huaweicloud.com/product/appcube.html)
-- [通天塔(京东)](https://babel.m.jd.com/active/babelCommon/index.html#/)
-- [无极(腾讯)](https://wujicode.cn/xy/app/prod/official/index)
-- [更多其他平台](https://github.com/taowen/awesome-lowcode)
+| | |
+| --- | --- |
+| 平台名称 | 所属公司 | 
+| <kbd>[宜搭](https://cn.aliyun.com/product/yida?from_alibabacloud=)</kbd> | 阿里 |
+| <kbd>[formilyjs](https://formilyjs.org/)</kbd> | 阿里 |
+| <kbd>[Astro Zero](https://www.huaweicloud.com/product/appcube.html)</kbd> | 华为 |
+| <kbd>[通天塔](https://babel.m.jd.com/active/babelCommon/index.html#/)</kbd> | 京东 |
+| <kbd>[无极](https://wujicode.cn/xy/app/prod/official/index)</kbd> | 腾讯 |
 
+<div m-t-10px></div>
+
+[更多其他平台](https://github.com/taowen/awesome-lowcode)
+
+<style>
+  .slidev-layout td, .slidev-layout th {
+    padding-top:.5rem;
+    padding-bottom: .5rem;
+  }
+</style>
 
 ---
 transition: slide-up
@@ -117,22 +129,16 @@ transition: slide-up
 hideInToc: true
 ---
 
-### Keyboard Shortcuts
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+---
+transition: slide-up
+---
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+# Varlet lowcode
+
+一个面向开发者的Vue Lowcode平台
+
+<img src="/assets/designer.jpg" w-70vh m-auto />
 
 ---
 layout: image-right
