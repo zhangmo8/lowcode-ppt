@@ -91,9 +91,9 @@ transition: slide-up
 hideInToc: true
 ---
 
-## Monorepo
+# Monorepo
 
-A monorepo is a `single repository` containing `multiple distinct projects`, with `well-defined relationships`.
+A monorepo is a <kbd>single repository</kbd> containing <kbd>multiple distinct projects</kbd>, with <kbd>well-defined relationships</kbd>.
 
 ```mermaid {theme: 'default', scale: 0.8}
 graph TD
@@ -129,7 +129,7 @@ transition: slide-up
 hideInToc: true
 ---
 
-## Plugins
+# Plugins
 
 <div grid="~ cols-2 gap-4">
 <div>
@@ -162,18 +162,16 @@ function createPluginsManager() {
 
 ---
 transition: slide-up
-hideInToc: true
 ---
 
-## Assets
+# Assets
 
 
 ---
 transition: slide-up
-hideInToc: true
 ---
 
-## Schema
+# Schema
 
 ```js
 
@@ -189,3 +187,19 @@ const schema = (
 )
 
 ```
+
+---
+transition: slide-left
+---
+
+# EventManager
+
+事件派发
+
+Core这个是需要单例
+
+---
+Designer
+---
+
+Iframe 设计，方便路由设计，样式隔离

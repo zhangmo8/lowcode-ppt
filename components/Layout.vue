@@ -7,8 +7,8 @@
     </header>
     <main border-rd border-1 p-1 flex m-1 h-xs>
       <div border-rd border-1 border-dashed m-1 p-1 flex flex-col justify-between>
-        <div>Sidbar Top</div>
-        <div>Sidbar Bottom</div>
+        <div>Sidebar Top</div>
+        <div>Sidebar Bottom</div>
       </div>
       <div w-xl border-rd border-1 border-dashed m-1 p-1 text-center>Designer</div>
       <div flex-1 border-rd border-1 border-dashed m-1 p-1 text-center>Setters</div>
