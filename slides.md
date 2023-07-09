@@ -93,7 +93,18 @@ hideInToc: true
 
 # Monorepo
 
-A monorepo is a <kbd>single repository</kbd> containing <kbd>multiple distinct projects</kbd>, with <kbd>well-defined relationships</kbd>.
+<div grid="~ cols-2 gap-4">
+<div>
+
+<div border-l-4 border-l-gray p-l-sm>
+A monorepo is a <kbd>single repository</kbd>
+
+containing <kbd>multiple distinct projects</kbd>,
+
+with <kbd>well-defined relationships</kbd>.
+</div>
+
+<br/>
 
 ```mermaid {theme: 'default', scale: 0.8}
 graph TD
@@ -111,17 +122,23 @@ graph TD
   style C fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
   style E fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
   style F fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
-  style G fill:#e96443,stroke:#093637,stroke-width:2px
-  style H fill:#e96443,stroke:#093637,stroke-width:2px
-  style I fill:#e96443,stroke:#093637,stroke-width:2px
+  style G fill:#4AC29A,stroke:#BDFFF3,stroke-width:2px
+  style H fill:#4AC29A,stroke:#BDFFF3,stroke-width:2px
+  style I fill:#4AC29A,stroke:#BDFFF3,stroke-width:2px
 
 ```
+</div>
 
-对比：Monolithic / Multi-repo / Monorepo
+<div>
+<div m-b-9>Monolithic / Multi-repo / Monorepo</div>
 
+<div m-b-9 b-b-dotted b-b-3></div>
 
 1. Simplified code management (dependencies, configs...)
 2. Improved code sharing
+</div>
+
+</div>
 
 
 ---
@@ -134,7 +151,7 @@ hideInToc: true
 <div grid="~ cols-2 gap-4">
 <div>
 
-```js
+```js {2|4-6|8-11|all}
 function createPluginsManager() {
   const plugins = []
 
@@ -152,11 +169,11 @@ function createPluginsManager() {
 ```
 
 </div>
+
 <div>
-
-<Layout />
-
+  <Layout />
 </div>
+
 </div>
 
 
@@ -166,6 +183,28 @@ transition: slide-up
 
 # Assets
 
+```ts {1-5|7-19|8|10-12|14-16|all}
+interface Asset {
+  profileLibrary?: string;
+  profileResource?: string;
+  additionResources?: string[];
+}
+
+function createAssetsManager() {
+  function importAssets(assets) {}
+
+  // css --> <link rel="stylesheet" href="..." /> 
+  // js --> <script src="..." /> 
+  function loadResources(resouce) {}
+
+  // const Component = window.{libraryName}.{componentName}
+  // h(Component, props, Slot)
+  function findComponent(asstes, name, library) {}
+
+  ...
+}
+
+```
 
 ---
 transition: slide-up
@@ -173,7 +212,46 @@ transition: slide-up
 
 # Schema
 
-```js
+<div grid="~ cols-2 gap-4">
+<div>
+
+```ts {1-10|all}
+interface SchemaNode {
+  name: string;
+  library?: string;
+  id?: string;
+  props?: SchemaNodeProps;
+  slots?: SchemaNodeSlots;
+  if?: SchemaNodeBinding;
+  for?: SchemaNodeBinding;
+  models?: string[];
+}
+
+interface SchemaPageNode extends SchemaNode {
+  code?: string;
+  css?: string;
+  ...
+}
+
+...
+
+```
+
+</div>
+
+<div>
+
+```ts {1-10|12-21|all}
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      page: Exclude<SchemaPageNode, 'slots'>
+      slot: { name?: string }
+      node: Exclude<SchemaNode, 'slots'>
+      t: Exclude<SchemaTextNode, 'slots'>
+    }
+  }
+}
 
 const schema = (
   <page id={id()} code={code} css={css}>
@@ -187,6 +265,11 @@ const schema = (
 )
 
 ```
+
+</div>
+
+</div>
+
 
 ---
 transition: slide-left
