@@ -421,10 +421,163 @@ transition: slide-up
 
 渲染设计器
 
+```ts
+
+eventsManager.on(BuiltInEvents.SCHEMA_CHANGE, async (newSchema) => {
+  // re mountRenderer
+})
+// ... other event: Resize, CSS inject
+
+
+function initIframe() {
+  // ...init 
+  iframeElement = container.value!.querySelector('iframe')
+
+  if (iframeElement) {
+    container.value!.removeChild(iframeElement)
+  }
+
+  iframeElement = document.createElement('iframe')
+  container.value!.appendChild(iframeElement)
+  iframeElement.contentWindow!.name = 'rendererWindow'
+}
+
+async function mountRenderer() {
+  // ...initIframe...
+  initIframe()
+
+  // ...Mount Iframe & Inject CSS
+
+  // ... init Renderer ...
+  renderer = iframeWindow.VarletLowcodeRenderer.default
+  renderer.schema.value = schema
+  // ...other Attrs Inject
+  renderer.init({ mountRoot: '#app', designerEventsManager: eventsManager })
+  renderer.mount()
+}
+
+
+// Renderer
+function renderSchemaNode(schemaNode: SchemaNode, scopeVariables: ScopeVariables): VNode {
+  if (!schemaNode.hasOwnProperty('for')) {
+    return withDesigner(schemaNode, scopeVariables)
+  }
+
+  // ... some vue template
+
+  return h(
+    Fragment,
+    null,
+    renderList(bindingValue, (item, index) => {
+      const clonedSchemaNode = schemaManager.cloneSchemaNode(schemaNode)
+
+      return withDesigner(
+        clonedSchemaNode,
+        createNewScopeVariables(scopeVariables, {
+          id: `item${schemaNode.id}`,
+          $item: {
+            ...scopeVariables.$item,
+            [schemaNode.id!]: item,
+          },
+          $index: {
+            ...scopeVariables.$index,
+            [schemaNode.id!]: index,
+          },
+        })
+      )
+    })
+  )
+}
+```
+
+<style>
+  .slidev-code-wrapper  {
+    height: 400px;
+    overflow: auto;
+  }
+</style>
 
 ---
 transition: slide-up
 ---
 
-# Dnd
+# Selector
+
+元素选择器
+
+<div grid="~ cols-2 gap-4" items-center>
+
+<div>
+
+```ts
+// base/default style
+const initStyle: CSSProperties = {...}
+
+function computedSelectorStyles(id: string) {
+  const node = document.querySelectorAll(`#item${id}`)
+  
+  const { top, left, width, height } = node.getBoundingClientRect()
+  // get Rect Info
+  const _style: CSSProperties = {
+    top: `${top}px`,
+    left: `${left}px`,
+    width: `${width}px`,
+    height: `${height}px`,
+  }
+  // merge custom style
+  return { ..._style, ...initStyle }
+}
+
+// dispatch click event
+function handleClick(event: Event) {}
+```
+
+</div>
+<div>
+
+```tsx
+<template>
+  <div key={Symbol(style.toString())} style={style}>
+    <PluginRender {...props} />
+  </div>
+</template>
+
+const builtInPlugins: SelectorPlugin[] = [
+  {
+    name: 'remove',
+    component: Remove,
+  },
+]
+
+const PluginRender = (props) => (
+   const { plugins } = props
+   <div class="varlet-low-code-selector__plugins">
+      {plugins.map((plugin: SelectorPlugin) => {
+        const PluginComponent = plugin.component as DefineComponent
+        return <PluginComponent {...props} />
+      })}
+    </div>
+)
+```
+
+</div>
+
+</div>
+
+<style>
+  .slidev-code-wrapper  {
+    height: 400px;
+    overflow: auto;
+  }
+</style>
+
+
+---
+image: https://source.unsplash.com/collection/94734566/1920x1080
+layout: cover
+transition: slide-left
+title: Thanks
+---
+
+# Thanks
 
