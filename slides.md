@@ -209,6 +209,8 @@ level: 2
 
 # Schema
 
+Schema定义
+
 <div grid="~ cols-2 gap-4">
 <div>
 
@@ -317,6 +319,8 @@ level: 2
 
 # Assets
 
+静态资源导入
+
 ```ts {1-5|7-19|8|10-12|14-16|all}
 interface Asset {
   profileLibrary?: string;
@@ -340,15 +344,6 @@ function createAssetsManager() {
 
 ```
 
----
-transition: slide-up
-level: 2
----
-
-# Designer
-
-Iframe 设计，方便路由设计，样式隔离
-
 
 ---
 transition: slide-left
@@ -359,7 +354,29 @@ level: 2
 
 事件派发
 
-Core这个是需要单例
+```ts {2-3|4-12|13-17|20|all}
+export function createEventsManager(): EventsManager {
+  const listenerDescriptors: ListenerDescriptor[] = []
+  let listenerDescriptorQueue: ListenerDescriptor[] = []
+
+  function on(event: string, listener: Listener) { ... }
+
+  function once(event: string, listener: Listener) { ... }
+
+  function off(event: string, listener: Listener) { ... }
+
+  function emit(event: string, ...args: any[]) { ... }
+  
+  function has(event: string, listener: Listener) { ... }
+
+  function flushQueue() { ... }
+
+  return { ... }
+}
+
+export default createEventsManager()
+
+```
 
 ---
 level: 2
@@ -394,6 +411,15 @@ function createPluginsManager() {
 </div>
 
 </div>
+
+
+---
+transition: slide-up
+---
+
+# Designer
+
+渲染设计器
 
 
 ---
