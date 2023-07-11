@@ -1,20 +1,55 @@
-
 ---
-transition: slide-left
+transition: slide-up
 ---
 
 # Core
 
-聚合部分，全局的调度器
+Global Dispatcher
 
+
+<div grid="~ cols-2 gap-4" items-center>
+<div>
+
+```mermaid {theme: 'default'}
+  graph TD
+  A(Core) --- B(Schema)
+  A --- C(Assets)
+  A --- D(EventManager)
+  A --- E(Plugin)
+  A --- F(Locale)
+  style A fill:#F2C94C,stroke:#F2994A,stroke-width:2px
+  style B fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+  style C fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+  style D fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+  style E fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+  style F fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+```
+</div>
+
+<div>
+<div m-b-9>Core</div>
+
+<div m-b-9 b-b-dotted b-b-3></div>
+
+1. 初始化基础配置
+2. 集成插件
+3. Schema共享
+4. 事件派发
+</div>
+
+</div>
+
+  <!-- style F fill:#6190E8,stroke:#A7BFE8,stroke-width:2px -->
 
 ---
-transition: slide-up
+transition: slide-left
 level: 2
 ---
 
 
 # Schema
+
+Schema定义
 
 <div grid="~ cols-2 gap-4">
 <div>
@@ -74,12 +109,57 @@ const schema = (
 
 </div>
 
+<!-- TODO: 
+{
+  id: schemaManager.generateId(),
+  name: BuiltInSchemaNodeNames.PAGE,
+  code: `\
+function setup() {
+  const count = ref(1)
+  const doubleCount = computed(() => count.value * 2)
+  return {
+    count,
+    doubleCount,
+  }
+}
+`,
+  css: 'body {\n  padding: 20px\n}',
+  slots: {
+    default: {
+      children: [
+        {
+          id: schemaManager.generateId(),
+          name: 'Button',
+          library: 'Varlet',
+          props: {
+            type: 'primary',
+            onClick: schemaManager.createExpressionBinding('() => { count.value++; }'),
+          },
+          slots: {
+            default: {
+              children: [
+                {
+                  id: schemaManager.generateId(),
+                  name: BuiltInSchemaNodeNames.TEXT,
+                  textContent: schemaManager.createExpressionBinding('doubleCount.value'),
+                },
+              ],
+            },
+          },
+        },
+      ],
+    },
+  },
+} -->
+
 ---
-transition: slide-left
+transition: slide-up
 level: 2
 ---
 
 # Assets
+
+静态资源导入
 
 ```ts {1-5|7-19|8|10-12|14-16|all}
 interface Asset {
@@ -104,15 +184,6 @@ function createAssetsManager() {
 
 ```
 
----
-transition: slide-up
-level: 2
----
-
-# Designer
-
-Iframe 设计，方便路由设计，样式隔离
-
 
 ---
 transition: slide-left
@@ -123,13 +194,38 @@ level: 2
 
 事件派发
 
-Core这个是需要单例
+```ts {2-3|4-12|13-17|20|all}
+export function createEventsManager(): EventsManager {
+  const listenerDescriptors: ListenerDescriptor[] = []
+  let listenerDescriptorQueue: ListenerDescriptor[] = []
+
+  function on(event: string, listener: Listener) { ... }
+
+  function once(event: string, listener: Listener) { ... }
+
+  function off(event: string, listener: Listener) { ... }
+
+  function emit(event: string, ...args: any[]) { ... }
+  
+  function has(event: string, listener: Listener) { ... }
+
+  function flushQueue() { ... }
+
+  return { ... }
+}
+
+export default createEventsManager()
+
+```
 
 ---
 level: 2
+transition: slide-up
 ---
 
 # Plugins
+
+插件系统
 
 <div grid="~ cols-2 gap-4">
 <div>
@@ -158,4 +254,3 @@ function createPluginsManager() {
 </div>
 
 </div>
-
