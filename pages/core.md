@@ -78,7 +78,7 @@ interface SchemaPageNode extends SchemaNode {
 
 <div>
 
-```ts {1-10|12-21|all}
+```ts
 const schema = (
   <page id={id()} code={code} css={css}>
     <node id={id()} library={'Varlet'} name={'Button'}>
