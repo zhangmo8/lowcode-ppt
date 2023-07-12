@@ -74,35 +74,6 @@ transition: slide-left
   }
 </style>
 
----
-transition: slide-up
-layout: default
----
-
-# Varlet lowcode
-
-一个面向开发者的Vue Lowcode平台
-
-<div grid="~ cols-2 gap-4" items-center>
-```mermaid {theme: 'default'}
-graph TD
-  A(Lowcode) --- B(Skeleton)
-  B --- C(Header)
-  B --- D(Material)
-  B --- E(Designer/Render)
-  B --- F(Setter)
-  style A fill:#F2C94C,stroke:#F2994A,stroke-width:2px
-  style B fill:#B06AB3,stroke:#4568DC,stroke-width:2px
-  style C fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
-  style D fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
-  style E fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
-  style F fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
-```
-
-  <div>
-    <SkeletonLayout />
-  </div>
-</div>
 
 ---
 transition: slide-left
@@ -155,6 +126,37 @@ graph TD
 2. Improved code sharing
 </div>
 
+</div>
+
+
+---
+transition: slide-up
+layout: default
+---
+
+# Lowcode
+
+一个面向开发者的 Lowcode 平台
+
+<div grid="~ cols-2 gap-4" items-center>
+```mermaid {theme: 'default'}
+graph TD
+  A(Lowcode) --- B(Skeleton)
+  B --- C(Header)
+  B --- D(Material)
+  B --- E(Designer/Render)
+  B --- F(Setter)
+  style A fill:#F2C94C,stroke:#F2994A,stroke-width:2px
+  style B fill:#B06AB3,stroke:#4568DC,stroke-width:2px
+  style C fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
+  style D fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
+  style E fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
+  style F fill:#6190E8,stroke:#A7BFE8,stroke-width:2px
+```
+
+  <div>
+    <SkeletonLayout />
+  </div>
 </div>
 
 ---

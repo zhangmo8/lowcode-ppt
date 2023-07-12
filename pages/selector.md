@@ -50,15 +50,16 @@ const builtInPlugins: SelectorPlugin[] = [
   },
 ]
 
-const PluginRender = (props) => (
+const PluginRender = (props) => {
    const { plugins } = props
-   <div class="varlet-low-code-selector__plugins">
+ 
+   return <div class="varlet-low-code-selector__plugins">
       {plugins.map((plugin: SelectorPlugin) => {
         const PluginComponent = plugin.component as DefineComponent
         return <PluginComponent {...props} />
       })}
     </div>
-)
+}
 ```
 
 </div>

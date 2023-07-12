@@ -14,15 +14,13 @@ Global Dispatcher
   graph TD
   A(Core) --- B(Schema)
   A --- C(Assets)
-  A --- D(EventManager)
+  A --- D(Event Bus)
   A --- E(Plugin)
-  A --- F(Locale)
   style A fill:#F2C94C,stroke:#F2994A,stroke-width:2px
   style B fill:#B06AB3,stroke:#4568DC,stroke-width:2px
   style C fill:#B06AB3,stroke:#4568DC,stroke-width:2px
   style D fill:#B06AB3,stroke:#4568DC,stroke-width:2px
   style E fill:#B06AB3,stroke:#4568DC,stroke-width:2px
-  style F fill:#B06AB3,stroke:#4568DC,stroke-width:2px
 ```
 </div>
 
@@ -33,7 +31,7 @@ Global Dispatcher
 
 1. 初始化基础配置
 2. 集成插件
-3. Schema共享
+3. Schema
 4. 事件派发
 </div>
 
