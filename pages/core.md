@@ -105,29 +105,6 @@ level: 2
 
 Schema定义
 
-<div grid="~ cols-2 gap-4">
-<div>
-
-```ts
-const schema = (
-  <page id={id()} code={code} css={css}>
-    <node id={id()} library={'Varlet'} name={'Button'}>
-      <t id={id()} textContent={'BUTTON 1'} />
-    </node>
-    <node id={id()} library={'Varlet'} name={'Button'}>
-      <t id={id()} textContent={'BUTTON 2'} />
-    </node>
-  </page>
-)
-
-...
-
-```
-
-</div>
-
-<div>
-
 ```ts
 {
   id: schemaManager.generateId(),
@@ -172,10 +149,6 @@ function setup() {
 }
 
 ```
-
-</div>
-
-</div>
 
 <style>
   .slidev-code-wrapper  {
