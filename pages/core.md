@@ -79,17 +79,6 @@ interface SchemaPageNode extends SchemaNode {
 <div>
 
 ```ts {1-10|12-21|all}
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      page: Exclude<SchemaPageNode, 'slots'>
-      slot: { name?: string }
-      node: Exclude<SchemaNode, 'slots'>
-      t: Exclude<SchemaTextNode, 'slots'>
-    }
-  }
-}
-
 const schema = (
   <page id={id()} code={code} css={css}>
     <node id={id()} library={'Varlet'} name={'Button'}>
@@ -107,7 +96,39 @@ const schema = (
 
 </div>
 
-<!-- TODO: 
+---
+transition: slide-left
+level: 2
+---
+
+# Schema
+
+Schema定义
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+```ts
+const schema = (
+  <page id={id()} code={code} css={css}>
+    <node id={id()} library={'Varlet'} name={'Button'}>
+      <t id={id()} textContent={'BUTTON 1'} />
+    </node>
+    <node id={id()} library={'Varlet'} name={'Button'}>
+      <t id={id()} textContent={'BUTTON 2'} />
+    </node>
+  </page>
+)
+
+...
+
+```
+
+</div>
+
+<div>
+
+```ts
 {
   id: schemaManager.generateId(),
   name: BuiltInSchemaNodeNames.PAGE,
@@ -148,7 +169,20 @@ function setup() {
       ],
     },
   },
-} -->
+}
+
+```
+
+</div>
+
+</div>
+
+<style>
+  .slidev-code-wrapper  {
+    height: 400px;
+    overflow: auto;
+  }
+</style>
 
 ---
 transition: slide-up
